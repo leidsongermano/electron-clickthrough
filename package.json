@@ -1,8 +1,8 @@
 {
-  "name": "electron-quick-start",
-  "description": "electron-quick-start",
+  "name": "electron-clickthrough",
+  "description": "PoC to use electron for a 'click through' application",
   "author": "electron",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -11,18 +11,7 @@
     "dist": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^2.0.2",
-    "electron-builder": "^20.15.3",
-    "electron-prebuilt": "^0.36.12"
+    "electron": "^13.1.2"
   },
-  "build": {
-    "appId": "test",
-    "win": {
-      "target": "NSIS"
-    }
-  },
-  "dependencies": {
-    "jquery": "^3.4.1"
-  },
-  "postinstall": "electron-builder install-app-deps"
+  "dependencies": {}
 }

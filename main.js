@@ -1,11 +1,7 @@
-'use strict';
-
-const electron = require('electron');
 
 // Module to control application life.
-const app = electron.app;
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow;
+const { app, BrowserWindow } = require('electron');
 
 //app.disableHardwareAcceleration();
 
@@ -14,9 +10,9 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 let reloadOnce = false;
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({transparent: true, frame:false, alwaysOnTop: true, skipTaskbar: true});
+  mainWindow = new BrowserWindow({ transparent: true, frame: false, alwaysOnTop: true, skipTaskbar: true });
   mainWindow.setMenu(null);
   mainWindow.maximize();
 
@@ -24,19 +20,19 @@ function createWindow () {
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
-   //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
   });
 
-  mainWindow.on('minimize',function(event){
-      event.preventDefault();
-      mainWindow.hide();
+  mainWindow.on('minimize', function (event) {
+    event.preventDefault();
+    mainWindow.hide();
   });
 
   // mainWindow.on('close', function (event) {
@@ -49,7 +45,7 @@ function createWindow () {
   // });
 
 
-  mainWindow.setIgnoreMouseEvents(true, {forward: true});
+  mainWindow.setIgnoreMouseEvents(true, { forward: true });
 }
 
 // This method will be called when Electron has finished
